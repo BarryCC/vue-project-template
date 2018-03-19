@@ -1,0 +1,46 @@
+
+
+项目目录内容简单描述，其中包含实际项目开发可能需要去修改配置的地方。
+
+1、bulid目录里面是运行环境和生产环境等操作配置文件，比如在运行npm run dev等命令时执行的就是这里的文件，
+    其中的webpack.base.conf.js文件里面配置项目入口文件、输出口文件和module配置规则（后面将示例加入sass配置规则）；
+    
+2、config 目录包括配置文件执行文件需要的配置信息，其中index.js写主要的几点：
+    dev（开发运行环境）配置下，
+        ① proxyTable：设置代理属性（用于接口发请求），
+        向本地服务器环境发送请求配置例如：
+        proxyTable: {
+          '/api': {//可拦截没有规则的接口请求
+                target: 'http://localhost:8080',//一般本地运行例如Tomcat环境使用的是8080端口
+                changeOrigin: true,
+          }
+        },
+        向服务器环境发送请求配置例如：（前后端分离）
+        proxyTable: {
+              '**': {
+                target: 'http://192.168.1.251:8889/',//服务器地址
+                changeOrigin: true,
+                filter: function(pathname) {
+                     return pathname.match('^/dsp');//接口过滤
+                }
+              }
+            }；
+        ② port：设置端口号，express服务的；
+        ③ autoOpenBrowser：制动打开浏览器，默认是false，个人比较喜欢打开true；
+    build（打包环境）配置下：
+        ① assetsRoot：打包生成文件的放置目录，可根据项目环境变换，不改变情况下打包完成后会在项目目录下生产一个diss文件夹；
+        ② assetsPublicPath：默认使用的是绝对路径（'/'），一般部署到服务器使用的是相对路径（'./'）；
+        
+3、src 资源文件目录，项目中的组件模块(components)以及图片(assets)，还有安装的路由（router）、状态管理（vuex）和main.js文件；
+
+4、.gitignore文件，将项目开发中可以忽略提交到SVN或git的文件写到该配置中；
+
+5、package.json文件：
+    scripts：npm run 命令执行名称，run和start是运行项目命令，build是打包命令；
+    dependencies和devDependencies：
+        前者生产环境下所需要的插件例如vue、iview、echarts等，
+        后者是开发运行环境下的插件配置例如babel、热加载等；
+        
+        
+        
+        
