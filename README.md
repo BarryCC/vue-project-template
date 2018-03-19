@@ -21,6 +21,9 @@ iview（提供样式组件）、axios（基于promise的HTTP客户端）、vue-q
     然后运行命令：npm run dev,之后在浏览器8080端口看到页面；
     
 二、项目目录描述：
-https://github.com/BarryCC/vue-project-topic/blob/master/%E7%9B%AE%E5%BD%95%E6%8F%8F%E8%BF%B0；
+https://github.com/BarryCC/vue-project-topic/blob/master/%E7%9B%AE%E5%BD%95%E6%8F%8F%E8%BF%B0
 
 三、个人实战项目开发补充点
+https://github.com/BarryCC/vue-project-topic/blob/master/%E4%B8%AA%E4%BA%BA%E5%AE%9E%E6%88%98%E8%A1%A5%E5%85%85
+
+
