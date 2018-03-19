@@ -1,3 +1,5 @@
+
+
 项目目录内容简单描述，其中包含实际项目开发可能需要去修改配置的地方。
 
 1、bulid目录里面是运行环境和生产环境等操作配置文件，比如在运行npm run dev等命令时执行的就是这里的文件，
@@ -31,7 +33,7 @@
         
 3、src 资源文件目录，项目中的组件模块(components)以及图片(assets)，还有安装的路由（router）、状态管理（vuex）和main.js文件；
 
-4、.gitignore文件，项目开发中可以将忽略提交到SVN或git的文件写到该配置文件中；
+4、.gitignore文件，将项目开发中可以忽略提交到SVN或git的文件写到该配置中；
 
 5、package.json文件：
     scripts：npm run 命令执行名称，run和start是运行项目命令，build是打包命令；
