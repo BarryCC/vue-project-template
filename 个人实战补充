@@ -32,3 +32,7 @@
     https://github.com/BarryCC/vue-project-topic/tree/master/vueProject
 
 
+Vue+iview系列：
+1、iview中时间选择器的双向绑定问题解决方案：
+    @on-change="formValidate.releaseStartTime=$event"
+    :value = "formValidate.releaseStartTime"
