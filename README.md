@@ -20,6 +20,8 @@ iview（提供样式组件）、axios（基于promise的HTTP客户端）、vue-q
     首先运行命令：npm install;
     然后运行命令：npm run dev,之后在浏览器8080端口看到页面；
     
+4、项目结构下载：https://github.com/BarryCC/vue-project-topic/tree/master/vueProject
+    
 二、项目目录描述：
 https://github.com/BarryCC/vue-project-topic/blob/master/%E7%9B%AE%E5%BD%95%E6%8F%8F%E8%BF%B0
 
