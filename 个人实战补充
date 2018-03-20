@@ -30,3 +30,5 @@
 5、路由拦截（不确定）：
     在components创建404.vue文件，在router.js文件中引用，具体参考vueproject实战项目
     https://github.com/BarryCC/vue-project-topic/tree/master/vueProject
+
+
