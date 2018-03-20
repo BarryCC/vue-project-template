@@ -10,7 +10,8 @@
 2、安装babel-polyfill（一般必须安装）
     原因：Babel默认只转换新的JavaScript句法（syntax），而不转换新的API，比如Iterator、Generator、Set、Maps、Proxy、
     Reflect、Symbol、Promise等全局对象，以及一些定义在全局对象上的方法（比如Object.assign）都不会转码。
-    运行命令：npm install --save-dev babel-polyfill（卸载为uninstall），--save-dev因开发环境需要，
+    特别注意：可以解决状态管理vuex在IE上的兼容性问题！！
+    运行命令：npm install --save-dev babel-polyfill，--save-dev因开发环境需要，
     在main.js文件中加入配置
     import 'babel-polyfill'
     
