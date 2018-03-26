@@ -30,6 +30,8 @@
     build（打包环境）配置下：
         ① assetsRoot：打包生成文件的放置目录，可根据项目环境变换，不改变情况下打包完成后会在项目目录下生产一个diss文件夹；
         ② assetsPublicPath：默认使用的是绝对路径（'/'），一般部署到服务器使用的是相对路径（'./'）；
+         （注：当使用相对路径（'./'）的时候，为了让项目icon和背景图片正常显示，将build目录下的utils.js配置中，
+　　　　　　use: loaders,fallback: 'vue-style-loader',配置下方添加配置" publicPath:'../../' "）；
         
 3、src 资源文件目录，项目中的组件模块(components)以及图片(assets)，还有安装的路由（router）、状态管理（vuex）和main.js文件；
 
