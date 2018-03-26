@@ -1,6 +1,8 @@
 # vueproject
 
-> this is a simple vue project
+专题系列是使用官方脚手架vue-cli来构建单页面应用，最后将补充本人项目开发中总结的注意点和要点；<br>
+个人目前项目开发使用一下几个方面的内容：<br>
+>>Vue、vue-router（路由）、vuex（状态管理）、iview（提供样式组件）、axios（基于promise的HTTP客户端）、vue-qull-editor（富文本编辑框插件）、echarts（图标）；
 
 ## Build Setup
 
