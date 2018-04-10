@@ -1,13 +1,3 @@
-
-<style scoped>
-</style>
-<style lang="scss">
-$color:red;
-.hello{
-  color: $color;
-}
-</style>
-
 <template>
   <div class="hello">
     this is a simple vue project!
@@ -23,3 +13,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.hello{
+  color:red;
+}
+</style>
