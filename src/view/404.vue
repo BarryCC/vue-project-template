@@ -1,10 +1,6 @@
 <template>
   <div class="Err404">
-    <Row>
-      <Col span="10" offset="7">
-      <img src="../assets/404.png" alt="404Error">
-      </Col>
-    </Row>
+    <img src="../assets/img/404.png" alt="404Error">
   </div>
 </template>
 

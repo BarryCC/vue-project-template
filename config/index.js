@@ -8,16 +8,16 @@ module.exports = {
   dev: {
 
     // Paths
-    assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
-    proxyTable: {},
+    assetsSubDirectory: 'static',//子目录，一般存放css，js，image等文件
+    assetsPublicPath: '/',//根目录
+    proxyTable: {},//用于解决跨域问题
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
     port: 8082, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
-    autoOpenBrowser: true,
-    errorOverlay: true,
-    notifyOnErrors: true,
+    autoOpenBrowser: true,//变编译完成后自动在浏览器中打开
+    errorOverlay: true,//浏览器错误提示
+    notifyOnErrors: true,//跨平台错误提示
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
 
     
@@ -31,17 +31,17 @@ module.exports = {
     // If you have problems debugging vue-files in devtools,
     // set this to false - it *may* help
     // https://vue-loader.vuejs.org/en/options.html#cachebusting
-    cacheBusting: true,
+    cacheBusting: true,//使缓存失效
 
-    cssSourceMap: true
+    cssSourceMap: true //代码压缩后定位
   },
 
   build: {
     // Template for index.html
-    index: path.resolve(__dirname, '../dist/index.html'),
+    index: path.resolve(__dirname, '../dist/index.html'),//打包后生成首页存放位子
 
     // Paths
-    assetsRoot: path.resolve(__dirname, '../dist'),
+    assetsRoot: path.resolve(__dirname, '../dist'),//打包（用于生产环境）后文件存放位子
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
 	//assetsPublicPath: './',

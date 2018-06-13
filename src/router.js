@@ -2,8 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 //懒加载
-const Error = resolve => require(['../components/404.vue'], resolve);
-const Home = resolve => require(['../components/Home.vue'], resolve);
+const Error = resolve => require(['./view/404.vue'], resolve);
+const Home = resolve => require(['./view/Home.vue'], resolve);
 
 Vue.use(Router)
 

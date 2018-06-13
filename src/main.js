@@ -10,11 +10,6 @@ import Http from './utils/http'
 //一些常用的JavaScript API方法引用
 import API from './utils/api'
 
-import Iview from 'iview'
-import 'iview/dist/styles/iview.css'
-
-Vue.use(Iview);
-
 Vue.prototype.$http = Http;
 Vue.prototype.$api = API;
 
