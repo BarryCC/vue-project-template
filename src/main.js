@@ -5,6 +5,7 @@ import 'babel-polyfill'
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './store'
 
 import Http from './utils/http'
 //一些常用的JavaScript API方法引用
@@ -12,6 +13,8 @@ import API from './utils/api'
 
 Vue.prototype.$http = Http;
 Vue.prototype.$api = API;
+//bus总线
+Vue.prototype.$bus = new Vue;
 
 Vue.config.productionTip = false
 
@@ -64,6 +67,22 @@ router.beforeEach((to, from, next) => {
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
+
+// 输入框在虚拟键盘弹出时，自动滚动到可见位置
+document.body.addEventListener('click', function (event) {
+  let element = event.target;
+  let tags = {
+    'INPUT': 1,
+    'TEXTAREA': 1,
+  }
+  if ((element.tagName in tags) ) {
+    setTimeout(function(){
+      element.scrollIntoView();
+      element.scrollIntoViewIfNeeded();
+    }, 400);
+  }
+}, false);
