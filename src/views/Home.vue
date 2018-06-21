@@ -33,7 +33,7 @@ export default {
       chooseMenuId:'0',
       homeMenuData:[
         {
-            pName:'VueComponent',
+            pName:'树组件',
             pId:'A',
             isOpen:false,
             children:[
@@ -50,7 +50,7 @@ export default {
             ]
         },
         {
-            pName:'others',
+            pName:'地图',
             pId:'B',
             isOpen:false,
             children:[
