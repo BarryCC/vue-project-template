@@ -2,13 +2,10 @@
   <div id="app">
     <router-view/>
     <!--请求加载框-->
-    <Spin fix id="ajaxLoader" >
-      <div class="loader">
-        <svg class="circular" viewBox="25 25 50 50">
-          <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="5" stroke-miterlimit="10"></circle>
-        </svg>
-      </div>
-    </Spin>
+    <div id="ajaxLoader">
+      <div class="loader"></div>
+      <div class="circular"></div>
+    </div>
   </div>
 </template>
 

@@ -5,14 +5,27 @@ import 'babel-polyfill'
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import store from './store'
+import store from './store/store'
 
+//请求二次封装
 import Http from './utils/http'
-//一些常用的JavaScript API方法引用
-import API from './utils/api'
-
 Vue.prototype.$http = Http;
+
+//引用一些常用的JavaScript API方法
+import API from './utils/api'
 Vue.prototype.$api = API;
+
+import VueDragZone from 'vue-drag-zone'
+Vue.use(VueDragZone)
+
+import Vddl from 'vddl';
+Vue.use(Vddl);
+
+// 引入echarts,方法一，全局引用
+// import echarts from 'echarts'
+// 引入echarts,方法二，按需引用
+Vue.prototype.$echarts = require('echarts/lib/echarts');
+
 //bus总线
 Vue.prototype.$bus = new Vue;
 
@@ -24,22 +37,20 @@ router.beforeEach((to, from, next) => {
   if (to.meta.title) {
     document.title = to.meta.title;
     next();
-  } else{
+  } else {
     next();
   }
   
   if (to.meta.requireAuth) {  // 判断该路由是否需要登录权限
     if (store.state.token) {  // 通过vuex state获取当前的token是否存在
       next();
-    }
-    else {
+    } else {
       next({
         path: '/',
         query: {redirect: to.fullPath}  // 将跳转的路由path作为参数，登录成功后跳转到该路由
       })
     }
-  }
-  else {
+  } else {
     next();
   }
 })

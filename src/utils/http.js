@@ -1,6 +1,5 @@
 'use strict'
 
-import Iview from 'iview'
 import axios from 'axios'
 import router from '../router'
 
@@ -27,7 +26,7 @@ function checkStatus (response) {
     // 如果不需要除了data之外的数据，可以直接 return response.data
   }
   // 异常状态下，把错误信息返回去
-  Iview.Message.error('网络异常');
+  console.log('网络异常');//可用提示框
   return {
     status: -404,
     msg: '网络异常'
@@ -36,17 +35,9 @@ function checkStatus (response) {
 
 function checkCode (res) {
   // 如果code异常(这里已经包括网络错误，服务器错误，后端抛出的错误)，可以弹出一个错误提示，告诉用户
-
-  if (res.messageCode === 40009) {
-    Iview.Modal.confirm({
-      title: "消息提示",
-      content: "登录超时，是否重新登录",
-      cancelText:"取消",
-      okText:"确定",
-      onOk:function () {
-        router.replace('登录页路径');
-      }
-    });
+  if (res.messageCode === '登录超时状态码') {
+    //可做弹出提示框跳转到登录页
+    router.replace('登录页路径');
   }
   return res;
 }

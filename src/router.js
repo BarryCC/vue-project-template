@@ -2,8 +2,14 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 //懒加载
-const Error = resolve => require(['./view/404.vue'], resolve);
-const Home = resolve => require(['./view/Home.vue'], resolve);
+const Error = resolve => require(['./views/404.vue'], resolve);
+const Home = resolve => require(['./views/Home.vue'], resolve);
+
+const Tree = resolve => require(['./views/Tree/treeShow.vue'], resolve);
+const DrogTree = resolve => require(['./views/drag-tree/treeShow.vue'], resolve);
+const BaiduMapOne = resolve => require(['./views/baiduMap/BaiduMapOne.vue'], resolve);
+const MapboxOne = resolve => require(['./views/baiduMap/mapboxOne.vue'], resolve);
+const BaiduMapTwo = resolve => require(['./views/baiduMap/baiduMapTwo.vue'], resolve);
 
 Vue.use(Router)
 
@@ -18,7 +24,16 @@ export default new Router({
   },
   //mode: 'history',//该模式下URL导航中没有#号
   routes: [
-    { path: '/', name: 'Home', component: Home, meta: {title: '首页'}},
+    { path: '/', component: Home,
+      children:[
+        {path: '', name: 'home', component: DrogTree},
+        {path: 'tree', name: 'tree', component: Tree},
+        {path: 'drogTree', name: 'drogTree', component: DrogTree},
+        {path: 'baiduMapOne', name: 'baiduMapOne', component: BaiduMapOne},
+        {path: 'mapboxOne', name: 'mapboxOne', component: MapboxOne},
+        {path: 'baiduMapTwo', name: 'baiduMapTwo', component: BaiduMapTwo},
+      ]
+    },
     { path: '*', name: 'Error', component: Error}
   ]
 })
