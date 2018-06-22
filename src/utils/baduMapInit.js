@@ -1,5 +1,6 @@
 /**
- * Created by Administrator on 2017/11/30
+ * Created by CC on 2017/11/30
+ * 应用于百度地图在vue项目中的引用初始化
  */
 export function MP(ak) {
   return new Promise(function (resolve, reject) {

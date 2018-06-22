@@ -33,43 +33,48 @@ export default {
       chooseMenuId:'0',
       homeMenuData:[
         {
-            pName:'树组件',
-            pId:'A',
-            isOpen:false,
-            children:[
-            {
-                cName:'tree',
-                cId:'1',
-                linkName:'tree'
+          pName:'组件',
+          pId:'A',
+          isOpen:false,
+          children:[
+             {
+              cName:'公共组件',
+              cId:'3',
+              linkName:'GlobalsComponentsShow1'
             },
             {
-                cName:'dragTree',
-                cId:'2',
-                linkName:'drogTree'
+              cName:'tree',
+              cId:'1',
+              linkName:'tree'
+            },
+            {
+              cName:'dragTree',
+              cId:'2',
+              linkName:'drogTree'
             }
-            ]
+          ]
         },
         {
-            pName:'地图',
-            pId:'B',
-            isOpen:false,
-            children:[
+          pName:'地图',
+          pId:'B',
+          isOpen:false,
+          children:[
             {
-                cName:'百度地图-示例1',
-                cId:'3',
-                linkName:'baiduMapOne'
+              cName:'百度地图-示例1',
+              cId:'3',
+              linkName:'baiduMapOne'
             },
             {
-                cName:'百度地图-示例2',
-                cId:'5',
-                linkName:'baiduMapTwo'
+              cName:'百度地图-示例2',
+              cId:'5',
+              linkName:'baiduMapTwo'
             },
             {
-                cName:'mapbox-示例1',
-                cId:'4',
-                linkName:'mapboxOne'
+              cName:'mapbox-示例1',
+              cId:'4',
+              linkName:'mapboxOne'
             }
-            ]
+          ]
         }
       ]
     }
