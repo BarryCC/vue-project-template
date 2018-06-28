@@ -1,10 +1,3 @@
-<style scoped>
-#mapbox{
-  width: 50%;
-  height: 700px;
-}
-</style>
-
 <template>
 <div class="mapbox">
   <div id="mapbox"></div>
@@ -802,3 +795,10 @@
         }
     }
 </script>
+
+<style scoped>
+#mapbox{
+  width: 50%;
+  height: 700px;
+}
+</style>

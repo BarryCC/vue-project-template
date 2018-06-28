@@ -1,7 +1,3 @@
-<style scope>
-
-</style>
-
 <template>
   <div class="baiDuMap">
     <div id="map" style="width: 75%;height: 800px;"></div>
@@ -77,3 +73,7 @@
     }
   }
 </script>
+
+<style scope>
+
+</style>

@@ -1,27 +1,3 @@
-<style scoped>
-  body {
-    font-family: Menlo, Consolas, monospace;
-    color: #444;
-  }
-  .departments{
-    width: 200px;
-    height: 700px;
-    margin:10px auto;
-    padding: 5px;
-    border: 1px solid black;
-    background: #131519;
-    color: white;
-    font-size: 14px;
-  }
-  .departments ul {
-    line-height: 1.5em;
-    list-style-type: none;
-  }
-  .departments .item {
-    cursor: pointer;
-  }
-</style>
-
 <template>
   <div class="departments">
     <vddl-list :list="treeData" :horizontal="false">
@@ -111,3 +87,27 @@
     }
   }
 </script>
+
+<style scoped>
+  body {
+    font-family: Menlo, Consolas, monospace;
+    color: #444;
+  }
+  .departments{
+    width: 200px;
+    height: 700px;
+    margin:10px auto;
+    padding: 5px;
+    border: 1px solid black;
+    background: #131519;
+    color: white;
+    font-size: 14px;
+  }
+  .departments ul {
+    line-height: 1.5em;
+    list-style-type: none;
+  }
+  .departments .item {
+    cursor: pointer;
+  }
+</style>

@@ -11,7 +11,7 @@ import store from './store/store'
 import './utils/routerIntercept'
 
 // 全局组件注册方法引用
-import './utils/globalsComponents'
+//import './utils/globalsComponents'
 
 // http请求二次封装
 import Http from './utils/http'
@@ -38,6 +38,18 @@ Vue.prototype.$echarts = require('echarts/lib/echarts');
 Vue.prototype.$bus = new Vue;
 
 Vue.config.productionTip = false;
+
+let requireComponent = require.context("./components", true, /^Base[A-Z]/)
+requireComponent.keys().forEach(function (fileName) {
+  let baseComponentConfig = requireComponent(fileName)
+  baseComponentConfig = baseComponentConfig.default || baseComponentConfig
+  let baseComponentName = baseComponentConfig.name || (
+    fileName
+      .replace(/^.+\//, '')
+      .replace(/\.\w+$/, '')
+  )
+  Vue.component(baseComponentName, baseComponentConfig)
+})
 
 /* eslint-disable no-new */
 new Vue({

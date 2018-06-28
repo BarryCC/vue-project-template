@@ -17,8 +17,6 @@ export default {
 			searchText:''
 		}
   },
-  computed:{},
-  mounted(){},
   methods:{}
 }
 </script>

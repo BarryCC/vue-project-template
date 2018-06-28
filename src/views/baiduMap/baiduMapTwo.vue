@@ -1,35 +1,3 @@
-<style scope>
-.baiDuMapTwo{
-  position: relative;
-  width: 100%;
-  height: 800px;
-}
-.BDMap-header{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 40px;
-  line-height: 40px;
-  text-align: left;
-  font-size: 22px;
-  }
-.BDMap-header .goBack{
-  margin-left: 70px;
-  font-weight: bold;
-  display: inline-block;
-  cursor: pointer;
-}
-.BDMap-header .goBack i{
-  margin-right: 5px;
-}
-.BDMap-header .choose-area{
-  font-weight: bolder;
-  margin-left: 20px;
-  display: inline-block;
-}
-</style>
-
 <template>
   <div class="baiDuMapTwo">
 		<div v-show="!BDMapShow" id="SHMapChart" style="width: 70%;height: 800px;"></div>
@@ -274,3 +242,35 @@
     }
   }
 </script>
+
+<style scope>
+.baiDuMapTwo{
+  position: relative;
+  width: 100%;
+  height: 800px;
+}
+.BDMap-header{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  text-align: left;
+  font-size: 22px;
+  }
+.BDMap-header .goBack{
+  margin-left: 70px;
+  font-weight: bold;
+  display: inline-block;
+  cursor: pointer;
+}
+.BDMap-header .goBack i{
+  margin-right: 5px;
+}
+.BDMap-header .choose-area{
+  font-weight: bolder;
+  margin-left: 20px;
+  display: inline-block;
+}
+</style>
