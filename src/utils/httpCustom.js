@@ -38,9 +38,16 @@ function readyStateChange () {
         document .getElementById ("loading").innerHTML ="数据加载中";
     }
 };
+// get
 xhr.open('get', 'url', true);
 xhr.onreadystatechange = readyStateChange;
 xhr.send(null);
+//post
+xhr.open('post', 'post.php', true);
+xhr.onreadystatechange = readyStateChange;
+xhr.setRequestHeader('Content-Type', 'application/json');
+xhr.send(jsonData);
+
 
 
 /*** 使用promise ***/

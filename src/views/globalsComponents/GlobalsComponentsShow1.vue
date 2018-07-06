@@ -1,17 +1,13 @@
 <template>
 <div class="globals-components-show1">
-	<span>{{searchText}}</span>
 	<c-input v-model="searchText"></c-input>
+  <span>{{searchText}}</span>
 </div>
 </template>
 
 <script>
-import CInput from '../../components/CInput'
 export default {
   name: 'globalsComponentsShow1',
-  components:{
-		CInput
-	},
   data () {
     return {
 			searchText:''

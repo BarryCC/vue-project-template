@@ -25,19 +25,84 @@ export default new Router({
       return { x: 0, y: 0 }
     }
   },
-  //mode: 'history',//该模式下URL导航中没有#号
+  // mode: 'history',//该模式下URL导航中没有#号
+  // auth true登录才能访问，false不需要登录
   routes: [
     { path: '/', component: Home,
       children:[
-        {path: '', name: 'home', component: DrogTree},
-        {path: 'globalsComponentsShow1', name: 'GlobalsComponentsShow1', component: GlobalsComponentsShow1},
-        {path: 'tree', name: 'tree', component: Tree},
-        {path: 'drogTree', name: 'drogTree', component: DrogTree},
-        {path: 'baiduMapOne', name: 'baiduMapOne', component: BaiduMapOne},
-        {path: 'mapboxOne', name: 'mapboxOne', component: MapboxOne},
-        {path: 'baiduMapTwo', name: 'baiduMapTwo', component: BaiduMapTwo},
+        {
+          path: '',
+          name: 'home',
+          meta: {
+            title:'主页',
+            auth: false
+          }, 
+          component: DrogTree
+        },
+        {
+          path: 'globalsComponentsShow1',
+          name: 'GlobalsComponentsShow1',
+          meta: {
+            title:'公共组件展示1',
+            auth: true
+          },
+          component: GlobalsComponentsShow1
+        },
+        {
+          path: 'tree',
+          name: 'tree',
+          meta: {
+            title:'树组件',
+            auth: false
+          }, 
+          component: Tree
+        },
+        {
+          path: 'drogTree',
+          name: 'drogTree',
+          meta: { 
+            title:'拖拽树组件',
+            auth: true
+          },
+          component: DrogTree
+        },
+        {
+          path: 'baiduMapOne',
+          name: 'baiduMapOne',
+          meta: {
+            title:'百度地图示例1',
+            auth: false
+          },
+          component: BaiduMapOne
+        },
+        {
+          path: 'baiduMapTwo',
+          name: 'baiduMapTwo',
+          meta: {
+            title:'百度地图示例2',
+            auth: false
+          },
+          component: BaiduMapTwo
+        },
+        {
+          path: 'mapboxOne',
+          name: 'mapboxOne',
+          meta: {
+            title:'mapbox',
+            auth: false
+          },
+          component: MapboxOne
+        },
       ]
     },
-    { path: '*', name: 'Error', component: Error}
+    {
+      path: '*',
+      name: 'Error',
+      meta: {
+        title:'报错，找不到页面',
+        auth: false
+      },
+      component: Error
+    }
   ]
 })
