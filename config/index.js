@@ -48,6 +48,7 @@ module.exports = {
 
     /**
      * Source Maps
+     * 在生产环境下不需要map文件，可设置为false
      */
 
     productionSourceMap: true,
