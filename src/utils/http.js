@@ -4,8 +4,8 @@ import axios from 'axios'
 import router from '../router'
 
 axios.interceptors.request.use(config => {
-  // loading
-  document.getElementById('ajaxLoader').style.display = "table";
+  // loading show
+  //document.getElementById('ajaxLoader').style.display = "table";
   return config
 }, error => {
   return Promise.reject(error)
@@ -14,30 +14,36 @@ axios.interceptors.request.use(config => {
 axios.interceptors.response.use(response => {
   return response
 }, error => {
-  return Promise.resolve(error.response)
+  return Promise.reject(error)
 })
 
 function checkStatus (response) {
-  // loading
-  document.getElementById('ajaxLoader').style.display = "none";
+  // loading hidden
+  //document.getElementById('ajaxLoader').style.display = "none";
   // 如果http状态码正常，则直接返回数据
   if (response && (response.status === 200 || response.status === 304 || response.status === 400)) {
     return response.data;
-    // 如果不需要除了data之外的数据，可以直接 return response.data
   }
   // 异常状态下，把错误信息返回去
-  console.log('网络异常');//可用提示框
+  //Iview.Message.error('网络异常');
   return {
-    status: -404,
+    status: response.status,
     msg: '网络异常'
   }
 }
 
 function checkCode (res) {
   // 如果code异常(这里已经包括网络错误，服务器错误，后端抛出的错误)，可以弹出一个错误提示，告诉用户
-  if (res.messageCode === '登录超时状态码') {
-    //可做弹出提示框跳转到登录页
-    router.replace('登录页路径');
+  if (res.messageCode === 40009) {
+    // Iview.Modal.confirm({
+    //   title: "消息提示",
+    //   content: "登录超时，是否重新登录",
+    //   cancelText:"取消",
+    //   okText:"确定",
+    //   onOk:function () {
+    //     router.replace('登录页路径');
+    //   }
+    // });
   }
   return res;
 }
