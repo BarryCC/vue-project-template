@@ -4,7 +4,7 @@ import 'babel-polyfill'
 
 import Vue from 'vue'
 import App from './App'
-import router from './router'
+import router from './router/router'
 import store from './store/store'
 
 // 路由拦截
@@ -20,6 +20,11 @@ Vue.prototype.$http = Http;
 // 引用一些常用的JavaScript API方法
 import API from './utils/api'
 Vue.prototype.$api = API;
+
+// iview
+import iView from 'iview'
+import 'iview/dist/styles/iview.css'
+Vue.use(iView);
 
 // 可拖拽布局
 import VueDragZone from 'vue-drag-zone'

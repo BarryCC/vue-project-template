@@ -2,17 +2,17 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 // 懒加载
-const Error = resolve => require(['./views/404.vue'], resolve);
-const Home = resolve => require(['./views/Home.vue'], resolve);
+const Error = resolve => require(['../views/404.vue'], resolve);
+const Home = resolve => require(['../views/Home.vue'], resolve);
 /*** 公共组件 ***/
-const GlobalsComponentsShow1 = resolve => require(['./views/globalsComponents/GlobalsComponentsShow1.vue'], resolve);
+const GlobalsComponentsShow1 = resolve => require(['../views/globalsComponents/GlobalsComponentsShow1.vue'], resolve);
 /*** 树Tree ***/
-const Tree = resolve => require(['./views/Tree/treeShow.vue'], resolve);
-const DrogTree = resolve => require(['./views/drag-tree/treeShow.vue'], resolve);
+const Tree = resolve => require(['../views/Tree/treeShow.vue'], resolve);
+const DrogTree = resolve => require(['../views/drag-tree/treeShow.vue'], resolve);
 /*** 地图示例 ***/
-const BaiduMapOne = resolve => require(['./views/baiduMap/BaiduMapOne.vue'], resolve);
-const MapboxOne = resolve => require(['./views/baiduMap/mapboxOne.vue'], resolve);
-const BaiduMapTwo = resolve => require(['./views/baiduMap/baiduMapTwo.vue'], resolve);
+const BaiduMapOne = resolve => require(['../views/baiduMap/BaiduMapOne.vue'], resolve);
+const MapboxOne = resolve => require(['../views/baiduMap/mapboxOne.vue'], resolve);
+const BaiduMapTwo = resolve => require(['../views/baiduMap/baiduMapTwo.vue'], resolve);
 
 Vue.use(Router)
 
