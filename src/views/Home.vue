@@ -32,60 +32,36 @@ export default {
     return {
       chooseMenuId:'0',
       homeMenuData:[
-        {
-          pName:'组件',
-          pId:'A',
-          isOpen:false,
+        {pName:'组件', pId:'A', isOpen:false,
           children:[
-             {
-              cName:'公共组件',
-              cId:'3',
-              linkName:'GlobalsComponentsShow1'
-            },
-            {
-              cName:'tree',
-              cId:'1',
-              linkName:'tree'
-            },
-            {
-              cName:'dragTree',
-              cId:'2',
-              linkName:'drogTree'
-            }
+            {cName:'公共组件1', cId:'3', linkName:'GlobalsComponentsShow1'},
+            {cName:'tree', cId:'1', linkName:'tree'},
+            {cName:'dragTree',cId:'2',linkName:'drogTree'}
           ]
         },
-        {
-          pName:'地图',
-          pId:'B',
-          isOpen:false,
+        {pName:'地图', pId:'B', isOpen:false,
           children:[
-            {
-              cName:'百度地图-示例1',
-              cId:'3',
-              linkName:'baiduMapOne'
-            },
-            {
-              cName:'百度地图-示例2',
-              cId:'5',
-              linkName:'baiduMapTwo'
-            },
-            {
-              cName:'mapbox-示例1',
-              cId:'4',
-              linkName:'mapboxOne'
-            }
+            {cName:'百度地图-示例1', cId:'3', linkName:'baiduMapOne'},
+            {cName:'百度地图-示例2', cId:'5', linkName:'baiduMapTwo'},
+            {cName:'mapbox-示例1', cId:'4', linkName:'mapboxOne'}
+          ]
+        },
+        {pName:'可视化', pId:'C', isOpen:false,
+          children:[
+            {cName:'可视化-示例1', cId:'c1', linkName:'DataVisualization1'},
+            {cName:'可视化-示例2', cId:'c2', linkName:'DataVisualization2'},
           ]
         }
       ]
     }
   },
   methods:{
-    openMenu(index){
+    openMenu(index) {
       this.homeMenuData[index].isOpen = !this.homeMenuData[index].isOpen;
     },
-    menuClick(id, name){
+    menuClick(id, name) {
       this.chooseMenuId = id;
-      this.$router.push({ name: name})
+      this.$router.push({name: name})
     }
   }
 }
