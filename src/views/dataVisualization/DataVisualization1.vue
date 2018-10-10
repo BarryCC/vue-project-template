@@ -45,7 +45,7 @@
 </template>
 
 <script>
-    import BallBlock from './BallBlock.vue'
+    import BallBlock from './DataVisualizationComponent1.vue'
     export  default {
         name: 'share',
         data(){

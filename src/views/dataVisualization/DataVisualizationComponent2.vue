@@ -20,7 +20,7 @@
 <script>
     export default {
         name: "share-center-data",
-        props:[ 'name', 'rotate'],
+        props:['name', 'rotate'],
         computed:{
             transformStyle(){
                 return {

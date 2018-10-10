@@ -22,7 +22,7 @@
 </template>
 
 <script>
-    import ShareCenterData from './ShareCenterData.vue'
+    import ShareCenterData from './DataVisualizationComponent2.vue'
     export  default {
         name: 'share',
         data(){
