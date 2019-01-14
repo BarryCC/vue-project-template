@@ -36,7 +36,8 @@ export default {
           children:[
             {cName:'公共组件1', cId:'3', linkName:'GlobalsComponentsShow1'},
             {cName:'tree', cId:'1', linkName:'tree'},
-            {cName:'dragTree',cId:'2',linkName:'drogTree'}
+            {cName:'dragTree',cId:'2',linkName:'drogTree'},
+            {cName:'solider1',cId:'4',linkName:'solider1'}
           ]
         },
         {pName:'地图', pId:'B', isOpen:false,

@@ -26,9 +26,3 @@ npm run e2e
 # run all tests
 npm test
 ```
-
-项目目录介绍和实战补充：<br>
-http://www.cnblogs.com/CCLlog/p/8649071.html <br>
-http://www.cnblogs.com/CCLlog/p/8650553.html
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
