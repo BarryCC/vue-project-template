@@ -6,7 +6,7 @@ import iView from 'iview'
 
 axios.interceptors.request.use(config => {
   // loading show
-  document.getElementById('ajaxLoader').style.display = "table";
+  document.getElementById('ajaxLoader').style.display = "inline-block";
   return config
 }, error => {
   return Promise.reject(error)
@@ -15,6 +15,9 @@ axios.interceptors.request.use(config => {
 axios.interceptors.response.use(response => {
   return response
 }, error => {
+  // loading hidden
+  document.getElementById('ajaxLoader').style.display = "none";
+  iView.Message.error('网络错误');
   return Promise.reject(error)
 })
 
