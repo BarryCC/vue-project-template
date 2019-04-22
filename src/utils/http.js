@@ -9,10 +9,14 @@ axios.interceptors.request.use(config => {
   document.getElementById('ajaxLoader').style.display = "inline-block";
   return config
 }, error => {
+  // loading hidden
+  document.getElementById('ajaxLoader').style.display = "none";
   return Promise.reject(error)
 })
 
 axios.interceptors.response.use(response => {
+  // loading hidden
+  document.getElementById('ajaxLoader').style.display = "none";
   return response
 }, error => {
   // loading hidden
@@ -22,8 +26,6 @@ axios.interceptors.response.use(response => {
 })
 
 function checkStatus (response) {
-  // loading hidden
-  document.getElementById('ajaxLoader').style.display = "none";
   // 如果http状态码正常，则直接返回数据
   if (response && (response.status === 200 || response.status === 304 || response.status === 400)) {
     return response.data;
