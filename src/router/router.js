@@ -14,7 +14,7 @@ export default new Router({
       return { x: 0, y: 0 }
     }
   },
-  // mode: 'history',//该模式下URL导航中没有#号
+  mode: 'history',
   // auth true登录才能访问，false不需要登录
   routes: [
     { path: '/', component: _import('Home'),

@@ -13,9 +13,13 @@ import './utils/routerIntercept'
 // 全局组件注册方法引用
 import './utils/globalsComponents'
 
-// http请求二次封装
+// http请求二次封装，处理token
 import Http from './utils/http'
 Vue.prototype.$http = Http;
+const token = localStorage.getItem('token');
+if (token) {
+  Vue.prototype.$http.defaults.headers.common['Authorization'] = token;
+}
 
 // 引用一些常用的JavaScript API方法
 import API from './utils/api'

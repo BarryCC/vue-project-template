@@ -29,6 +29,17 @@ router.beforeEach((to, from, next) => {
     // }
     next();
   }
+
+  if(to.matched.some(record => record.meta.requiresAuth)) {
+    if (store.getters.isLoggedIn) {
+      next()
+      return
+    }
+    next('/login') 
+  } else {
+    next() 
+  }
+
   next();
 });
 

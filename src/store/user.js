@@ -1,26 +1,45 @@
-import Vue from 'vue'
-
-export const USER_SIGNIN = 'USER_SIGNIN' //登录成功
-export const USER_SIGNOUT = 'USER_SIGNOUT' //退出登录
-
 export default {
-    state: JSON.parse(sessionStorage.getItem('user')) || {},
+    state: {
+        status: '',
+        token: localStorage.getItem('token') || '',
+        user : {}
+    },
+    getters : {
+        isLoggedIn: state => !!state.token,
+        authStatus: state => state.status,
+    },
     mutations: {
-        [USER_SIGNIN](state, user) {
-            sessionStorage.setItem('user', JSON.stringify(user))
-            Object.assign(state, user)
+        auth_request(state){
+            state.status = 'loading';
         },
-        [USER_SIGNOUT](state) {
-            sessionStorage.removeItem('user')
-            Object.keys(state).forEach(k => Vue.delete(state, k))
+        auth_success(state, token, user){
+            state.status = 'success';
+            state.token = token;
+            state.user = user;
+        },
+        auth_error(state){
+            state.status = 'error';
         }
     },
     actions: {
-        [USER_SIGNIN]({commit}, user) {
-            commit(USER_SIGNIN, user)
+        login({commit}, user){
+            return new Promise((resolve, reject) => {
+                commit('auth_request');
+                this.$http.post('http://localhost:3000/login', user)
+                .then((resp) => {
+                    const token = resp.data.token;
+                    const user = resp.data.user;
+                    localStorage.setItem('token', token);
+                    axios.defaults.headers.common['Authorization'] = token;
+                    commit('auth_success', token, user);
+                    resolve(resp);
+                })
+                .catch(err => {
+                    commit('auth_error');
+                    localStorage.removeItem('token');
+                    reject(err);
+                })
+            })
         },
-        [USER_SIGNOUT]({commit}) {
-            commit(USER_SIGNOUT)
-        }
     }
 }
