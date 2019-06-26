@@ -59,7 +59,7 @@ export default {
       }
     }).then(
       (res) => {
-        return res
+        return Promise.resolve(res)
       }
     )
   },
