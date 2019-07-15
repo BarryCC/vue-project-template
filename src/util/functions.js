@@ -1,9 +1,9 @@
-export  default  {
+export default  {
 
   /**
    * 判断是否为空
    */
-  isEmpty:function (value) {
+  isEmpty: function (value) {
     if (value === null || value === undefined || value === "") {
       return true;
     } else if ((value instanceof Number || typeof(value) === "number") && isNaN(value)) {
@@ -19,7 +19,7 @@ export  default  {
    * @param sSplit 分隔符,默认'-','CN'表示用年月日分隔
    * @returns string
    */
-  fmtDate : function (date, sSplit) {
+  formatDate: function (date, sSplit) {
     let sDate, sY, sM, sD;
     if (date instanceof Date) {
       sY = date.getFullYear();
@@ -52,10 +52,34 @@ export  default  {
   },
 
   /**
+   * 说明：格式化参数 fmt		"yyyy-MM-dd hh:mm:ss.S"
+   */
+  dateFormat: function (time, fmt) {
+    var o = {
+      "M+": time.getMonth() + 1,
+      "d+": time.getDate(),
+      "h+": time.getHours(),
+      "m+": time.getMinutes(),
+      "s+": time.getSeconds(),
+      "q+": Math.floor((time.getMonth() + 3) / 3),
+      "S": time.getMilliseconds()
+    };
+    if (/(y+)/.test(fmt)) {
+      fmt = fmt.replace(RegExp.$1, (time.getFullYear() + "").substr(4 - RegExp.$1.length))
+    }
+    for (var k in o) {
+      if (new RegExp("(" + k + ")").test(fmt)) {
+        fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)))
+      }
+    }
+    return fmt;
+  },
+
+  /**
    * 简单检查输入的身份证号是否无效，有效返回false，无效返回true
    */
-  isValidIDCardNo:function(code){
-    let Errors = new Array("true",
+  isValidIDCardNo: function(code){
+    const Errors = new Array("true",
       "身份证号码位数不对,必须是15位或者18位!",
       "身份证号码出生年月日格式不对!",
       "身份证号码校验位错误!",
@@ -73,7 +97,6 @@ export  default  {
     };
     let Y, JYM;
     let S, M;
-    let ereg;
     let idcard_array = new Array();
     idcard_array = code.split("");
     // 地区检验
@@ -85,13 +108,10 @@ export  default  {
         if (!/^[0-9]{15}$/.test(code)) {
           return Errors[5];
         }
-        let sBirthday = "19" + code.substr(6, 2) + "-"
-          + Number(code.substr(8, 2)) + "-"
-          + Number(code.substr(10, 2));
-        let d = new Date(sBirthday.replace(/-/g, "/"));
-        let flag = (sBirthday != (d.getFullYear() + "-"
-        + (d.getMonth() + 1) + "-" + d.getDate()));
-        if (!flag)
+        let sBirthday1 = "19" + code.substr(6, 2) + "-" + Number(code.substr(8, 2)) + "-" + Number(code.substr(10, 2));
+        let d1 = new Date(sBirthday1.replace(/-/g, "/"));
+        let flag1 = (sBirthday1 != (d1.getFullYear() + "-" + (d1.getMonth() + 1) + "-" + d1.getDate()));
+        if (!flag1)
           return Errors[0];
         else
           return Errors[2];
@@ -101,13 +121,10 @@ export  default  {
           return Errors[6];
         }
 
-        let sBirthday = code.substr(6, 4) + "-"
-          + Number(code.substr(10, 2)) + "-"
-          + Number(code.substr(12, 2));
-        let d = new Date(sBirthday.replace(/-/g, "/"));
-        let flag = (sBirthday != (d.getFullYear() + "-"
-        + (d.getMonth() + 1) + "-" + d.getDate()));
-        if (!flag) {// 测试出生日期的合法性
+        let sBirthday2 = code.substr(6, 4) + "-" + Number(code.substr(10, 2)) + "-" + Number(code.substr(12, 2));
+        let d2 = new Date(sBirthday2.replace(/-/g, "/"));
+        let flag2 = (sBirthday2 != (d2.getFullYear() + "-" + (d2.getMonth() + 1) + "-" + d2.getDate()));
+        if (!flag2) {// 测试出生日期的合法性
           // 计算校验位
           S = (parseInt(idcard_array[0]) + parseInt(idcard_array[10]))
             * 7
@@ -141,28 +158,5 @@ export  default  {
         return Errors[1];
         break;
     }
-  },
-
-  /**
-   * 说明：格式化参数 fmt		"yyyy-MM-dd hh:mm:ss.S"
-   */
-  dateFormat: function (time,fmt) {
-    var o = {
-      "M+": time.getMonth() + 1, //月份
-      "d+": time.getDate(), //日
-      "h+": time.getHours(), //小时
-      "m+": time.getMinutes(), //分
-      "s+": time.getSeconds(), //秒
-      "q+": Math.floor((time.getMonth() + 3) / 3), //季度
-      "S": time.getMilliseconds() //毫秒
-    };
-    if (/(y+)/.test(fmt)) {fmt = fmt.replace(RegExp.$1, (time.getFullYear() + "").substr(4 - RegExp.$1.length))}
-    for (var k in o) {
-      if (new RegExp("(" + k + ")").test(fmt)) {fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)))}
-    }
-    return fmt;
   }
-
 };
-
-

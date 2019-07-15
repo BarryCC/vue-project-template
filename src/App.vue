@@ -8,6 +8,8 @@
         <!-- <Footer></Footer> -->
       </div>
     </Layout>
+    <!--请求加载框-->
+    <div id="ajaxLoader"></div>
   </div>
 </template>
 

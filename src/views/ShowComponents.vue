@@ -88,7 +88,7 @@ import checkbox from '../components/checkBox/Checkbox'
 import button from '../components/button/Button'
 import input from '../components/input/Input'
 export default {
-  name: 'home',
+  name: 'ShowComponents',
   components: {
     'Button': button,
     'Input': input,
