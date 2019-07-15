@@ -1,0 +1,63 @@
+html, body {
+    width: 100%;
+    height: 100%;
+}
+body {
+    position: relative;
+    overflow: hidden;
+}
+body, h1, h2, h3, h4, h5, p, input {
+    margin: 0;
+}
+.main {
+    position: absolute;
+    top: 100px;
+    left: 15%;
+    right: 0;
+    bottom: 0;
+    padding: 20px 20px 30px 20px;
+}
+/*********** table-begin *************/
+table {
+    border-collapse: collapse;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+.table-primary thead tr th {
+    height: 45px;
+    background: rgba(46, 104, 234, 0.1) ;
+    text-align: center;
+    color: #666;
+    font-size: 16px;
+}
+.table-primary tbody tr td {
+    height: 50px;
+    text-align: center;
+    color: #666;
+}
+.table-primary tbody tr:nth-child(even){
+    background: #f8f8f8;
+}
+.table-primary .table-handle {
+    font-size: 14px;
+    color: #2e68ea;
+    text-shadow: 0 0 0 #2e68ea;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.table-primary .table-handle:hover {
+    color: rgba(46, 104, 234, 0.8);
+}
+.table-border {
+    border: 1px solid #e5e5e5;
+}
+.table-border thead tr,
+.table-border tbody tr {
+    border-bottom: 1px solid #e5e5e5;
+}
+.table-border thead tr th,
+.table-border tbody tr td {
+    border-right: 1px solid #e5e5e5;
+}
+/*********** table-end *************/
