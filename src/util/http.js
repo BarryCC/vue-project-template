@@ -9,7 +9,8 @@ axios.interceptors.request.use(
     // loading show
     document.getElementById('ajaxLoader').style.display = "inline-block";
     return config;
-  }, error => {
+  },
+  error => {
     return Promise.reject(error);
   }
 )
@@ -37,10 +38,11 @@ axios.interceptors.response.use(
     } else {
       return res;
     }
-  }, error => {
+  },
+  error => {
     // loading hidden
     document.getElementById('ajaxLoader').style.display = "none";
-    iView.Message.error('网络错误');
+    iView.Message.error(error);
     return Promise.reject(error)
   }
 )
@@ -52,31 +54,23 @@ export default {
       baseURL: '/',
       url,
       data: JSON.stringify(data),
-      timeout: 10000,
+      timeout: 20000,
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       }
-    }).then(
-      (res) => {
-        return Promise.resolve(res)
-      }
-    )
+    })
   },
   get (url, params) {
     return axios({
       method: 'get',
       baseURL: '/',
       url,
-      params, // get 请求时带的参数
-      timeout: 10000,
+      params,
+      timeout: 20000,
       headers: {
         'X-Requested-With': 'XMLHttpRequest'
       }
-    }).then(
-      (res) => {
-        return res;
-      }
-    )
+    })
   }
 }
