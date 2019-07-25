@@ -9,7 +9,8 @@ axios.interceptors.request.use(
     // loading show
     document.getElementById('ajaxLoader').style.display = "inline-block";
     return config;
-  }, error => {
+  },
+  error => {
     return Promise.reject(error);
   }
 )
@@ -37,7 +38,8 @@ axios.interceptors.response.use(
     } else {
       return res;
     }
-  }, error => {
+  },
+  error => {
     // loading hidden
     document.getElementById('ajaxLoader').style.display = "none";
     iView.Message.error('网络错误');
