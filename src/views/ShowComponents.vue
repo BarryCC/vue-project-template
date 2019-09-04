@@ -1,5 +1,13 @@
 <template>
 <div class="home">
+  <!-- editor -->
+  <div class="part">
+    <Editor v-model="editorContent" 
+            :size="4" 
+            uploadUrl="eweee" 
+            serverPath="ddddd"></Editor>
+    <div v-html="editorContent"></div>
+  </div>
   <!-- checkbox -->
   <div class="part">
     <Checkbox v-model="checkboxState" @on-change="checkboxChange">
@@ -87,19 +95,22 @@ import checkboxGroup from '../components/checkBox/CheckboxGroup'
 import checkbox from '../components/checkBox/Checkbox'
 import button from '../components/button/Button'
 import input from '../components/input/Input'
+import editor from '../components/editor/Editor'
 export default {
   name: 'ShowComponents',
   components: {
     'Button': button,
     'Input': input,
     'Checkbox': checkbox,
-    'CheckboxGroup': checkboxGroup
+    'CheckboxGroup': checkboxGroup,
+    'Editor': editor
   },
   data() {
     return {
       checkboxgroup: [],
       checkboxState: false,
-      inputVal: ''
+      inputVal: '',
+      editorContent: ''
     }
   },
   methods:{

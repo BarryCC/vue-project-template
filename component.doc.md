@@ -1,3 +1,5 @@
+
+
 **checkbox多选框**
 > checkboxgroup
 - inline：是否开启内行模式，默认false
