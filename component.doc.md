@@ -1,5 +1,9 @@
 
-
+**editor富文本编辑器**
+- uploadUrl：文件上传接口
+- serverPath：文件上传服务器地址
+- maxSize：上传文件最大值
+***
 **checkbox多选框**
 > checkboxgroup
 - inline：是否开启内行模式，默认false

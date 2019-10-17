@@ -21,9 +21,9 @@ if (token) {
   Vue.prototype.$http.defaults.headers.common['Authorization'] = token;
 }
 
-// 引用一些常用的JavaScript API方法
-import FUC from './util/functions'
-Vue.prototype.$fuc = FUC;
+// 引用一些常用的JavaScript function
+import Functions from './util/functions'
+Vue.prototype.$util = Functions;
 
 // bus总线
 Vue.prototype.$bus = new Vue;

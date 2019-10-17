@@ -1,5 +1,4 @@
 export default  {
-
   /**
    * 判断是否为空
    */
@@ -78,7 +77,7 @@ export default  {
   /**
    * 简单检查输入的身份证号是否无效，有效返回false，无效返回true
    */
-  isValidIDCardNo: function(code){
+  isValidIDCard: function(code){
     const Errors = new Array("true",
       "身份证号码位数不对,必须是15位或者18位!",
       "身份证号码出生年月日格式不对!",
@@ -86,9 +85,8 @@ export default  {
       "身份证地区非法!",
       "15位身份证号码由数字组成!",
       "18位身份证号码前17位由数字组成,第18位可以是数字或者大写\"X\"!");
-    if (code.length != 15 && code.length != 18) {// 身份证长度不正确
-      return Errors[1];
-    }
+    // 身份证长度不正确
+    if (code.length != 15 && code.length != 18) {return Errors[1];}
     let area = {
       11:"北京",12:"天津",13:"河北",14:"山西",15:"内蒙古",21:"辽宁",22:"吉林",23:"黑龙江",
       31:"上海",32:"江苏",33:"浙江",34:"安徽",35:"福建",36:"江西",37:"山东",41:"河南",42:"湖北",43:"湖南",
@@ -100,8 +98,7 @@ export default  {
     let idcard_array = new Array();
     idcard_array = code.split("");
     // 地区检验
-    if (area[parseInt(code.substr(0, 2))] == null)
-      return Errors[4];
+    if (area[parseInt(code.substr(0, 2))] == null) {return Errors[4];}
     // 身份号码位数及格式检验
     switch (code.length) {
       case 15:
@@ -120,7 +117,6 @@ export default  {
         if (!/^[0-9]{17}([0-9X])$/.test(code)) {
           return Errors[6];
         }
-
         let sBirthday2 = code.substr(6, 4) + "-" + Number(code.substr(10, 2)) + "-" + Number(code.substr(12, 2));
         let d2 = new Date(sBirthday2.replace(/-/g, "/"));
         let flag2 = (sBirthday2 != (d2.getFullYear() + "-" + (d2.getMonth() + 1) + "-" + d2.getDate()));
@@ -158,5 +154,12 @@ export default  {
         return Errors[1];
         break;
     }
+  },
+
+  /**
+   * 说明：金额分段
+  */
+  moneyChange: function(value) {
+    return value.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
   }
 };

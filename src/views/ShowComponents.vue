@@ -3,7 +3,7 @@
   <!-- editor -->
   <div class="part">
     <Editor v-model="editorContent" 
-            :size="4" 
+            :maxSize="4" 
             uploadUrl="eweee" 
             serverPath="ddddd"></Editor>
     <div v-html="editorContent"></div>

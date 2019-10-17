@@ -10,11 +10,11 @@
         :data="uploadData"
 				:action="uploadUrl"
         :show-upload-list="false"
-				:max-size="size * 1024"
+				:max-size="maxSize * 1024"
 				:on-exceeded-size="errorSize"
         :before-upload="uploadBefore"
         :on-success="uploadSuccess">
-        <button id="upload_file_btn"></button>
+        <div id="upload_file_btn"></div>
     </Upload>
   </div>
 </template>
@@ -56,7 +56,7 @@
 			serverPath: {
 				type: String
 			},
-			size: {
+			maxSize: {
 				type: Number
 			}
 		},
